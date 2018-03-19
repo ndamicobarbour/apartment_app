@@ -1,19 +1,57 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {BrowserRouter as Router, Link, Route, Redirect} from 'react-router-dom'
+import {
+    Grid,
+    PageHeader,
+    Row,
+    Col,
+    Button,
+    Navbar,
+    NavItem,
+    Nav,
+    Jumbotron
+} from 'react-bootstrap'
+import Apartment from './Apartments'
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+        <Router>
+            <div>
+                <Route exact path="/" render={props => (
+                    <div className="App">
+                        <Jumbotron>
+                            <h1>Apartment Search Database</h1>
+                            <p>
+                                Find your next home!
+                            </p>
+                            <p>
+                                <Link to='/apartments' id="view_apt"><Button bsStyle="primary" className='pagenav_view'>View Apartments</Button></Link>&nbsp;&nbsp;
+                                <Button bsStyle="primary" className='pagenav_add'>Add an Apartment</Button>
+                            </p>
+                        </Jumbotron>
+                        // New Apartments
+                    </div>
+                )} />
+
+                <Route exact path="/apartments" render={props => (
+                    <div className="App">
+                        <Jumbotron>
+                            <h1>Apartment Search Database</h1>
+                            <p>
+                                Find your next home!
+                            </p>
+                            <p>
+                                <Button bsStyle="primary" className='pagenav_view'>View Apartments</Button>&nbsp;&nbsp;
+                                <Link to='/' id="new_apt"><Button bsStyle="primary" className='pagenav_add'>Add an Apartment</Button></Link>
+                            </p>
+                        </Jumbotron>
+                        <Apartment />
+                    </div>
+                )} />
+
+            </div>
+        </Router>
     );
   }
 }
