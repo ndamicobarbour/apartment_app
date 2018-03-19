@@ -1,5 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Apartment, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  it "can create an Apartment" do
+    apartment = Apartment.new
+    expect(apartment).to exist
+  end
+
 end
