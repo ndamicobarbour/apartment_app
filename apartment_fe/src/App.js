@@ -14,6 +14,14 @@ import {
 import Apartment from './Apartments'
 
 class App extends Component {
+    constructor(props){
+        super(props)
+        this.state = {
+            apiUrl: "http//localhost:3001",
+            apartments: []
+        }
+    }
+
   render() {
     return (
         <Router>
@@ -46,7 +54,7 @@ class App extends Component {
                                 <Link to='/' id="new_apt"><Button bsStyle="primary" className='pagenav_add'>Add an Apartment</Button></Link>
                             </p>
                         </Jumbotron>
-                        <Apartment />
+                        <Apartment/>
                     </div>
                 )} />
 
