@@ -16,7 +16,21 @@ class Apartment extends Component {
     render() {
         return (
             <div>
-                <h2>All the Apartments</h2>
+                        {this.props.apartments.map((apartment, index) =>{
+                            return (
+                                <div>
+                                    <h4 className='apt-1'>{apartment.address1}</h4>
+                                    <h4>{apartment.address2}</h4>
+                                    <h4>{apartment.city}</h4>
+                                    <h4>{apartment.zip_code}</h4>
+                                    <h4>{apartment.state}</h4>
+                                    <h4>{apartment.country}</h4>
+                                    <h4>{apartment.name}</h4>
+                                    <h4>{apartment.phone}</h4>
+                                    <h4 className='hours'>{apartment.availability_hours}</h4>
+                                </div>
+                            )
+                        })}
             </div>
         );
     }
