@@ -8,7 +8,7 @@ import {
     Button,
     Navbar,
     NavItem,
-    Nav,
+    Nav, 
     Jumbotron
 } from 'react-bootstrap'
 import Apartment from './Apartments'
